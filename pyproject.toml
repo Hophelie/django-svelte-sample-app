@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "django-svelte-sample-app"
+version = "0.1.0"
+description = ""
+authors = ["Hophélie Bourgeois <hophelie@twiiky-corp.fr>"]
+readme = "README.md"
+packages = [{include = "django_svelte_sample_app"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+whitenoise = "^6.4.0"
+django = "3.2.7"
+djangorestframework = "^3.14.0"
+tzdata = "^2022.7"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
