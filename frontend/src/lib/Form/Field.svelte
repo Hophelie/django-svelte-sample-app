@@ -1,33 +1,42 @@
 
-<script>
+<script> 
+
+    import {form} from "../store/store"
+    
+    
+
+
+
+
+
     import { getContext } from "svelte";
     import { v4 as uuidv4 } from 'uuid';
     export let value;
     export let min = undefined;
     export let placeholder="Entrez votre valeur";
-    export let type = "text";
+    // export let type = "text";
     export let id = uuidv4();
     export let name = id;
+    // export let validate = undefined;
+    export let required = false;
+    export { className as class };
+
+    let className;
     // j'apelle le store du form   
     import formKey from "./form-key"
-    let form = getContext(formKey)
-
-    function handleInput(e){
-        const newValue = e.target.value;
-        form.update(f => ({...f, values: {...f.values, [id]: newValue}}));
-    }
+    let formStore = getContext(formKey)
+    
+    
 </script>
 
-    <sl-input class="my-1" bind:this={value}
-           {type}
+    <input bind:value
            {min}
            {placeholder}
            {id}
-           {name}  
-           on:input={(e)=>{ 
-            handleInput(e)
-           }}>test 
-   </sl-input><span class="focus-border"></span>
+           {name}
+           {required}
+           class="{className}"
+           />
    
 
 <!-- 
